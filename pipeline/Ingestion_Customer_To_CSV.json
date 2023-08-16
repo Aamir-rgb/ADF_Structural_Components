@@ -1,9 +1,9 @@
 {
-	"name": "Ingestion_Product_To_JSON",
+	"name": "Ingestion_Customer_To_CSV",
 	"properties": {
 		"activities": [
 			{
-				"name": "Records greater than 10",
+				"name": "Greater Than 100",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
@@ -17,22 +17,22 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "select count(*) as RecordCount from saleslt.Product",
+						"sqlReaderQuery": "select count(*) as RecourdCount from saleslt.Address",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
 					"dataset": {
-						"referenceName": "DS_LS_SQL_5",
+						"referenceName": "DS_LS_SQL_5_1",
 						"type": "DatasetReference"
 					}
 				}
 			},
 			{
-				"name": "Product Record Greater Than 10",
+				"name": "Check Address Table Record",
 				"type": "IfCondition",
 				"dependsOn": [
 					{
-						"activity": "Records greater than 10",
+						"activity": "Greater Than 100",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -41,17 +41,17 @@
 				"userProperties": [],
 				"typeProperties": {
 					"expression": {
-						"value": "@greater(activity('Records greater than 10').output.firstRow.RecordCount,10)",
+						"value": "@greater(activity('Greater Than 100').output.firstRow.RecourdCount,100)",
 						"type": "Expression"
 					}
 				}
 			},
 			{
-				"name": "Product Data Greater Than 10",
+				"name": "Address Data Copy",
 				"type": "Copy",
 				"dependsOn": [
 					{
-						"activity": "Product Record Greater Than 10",
+						"activity": "Check Address Table Record",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -72,48 +72,38 @@
 						"partitionOption": "None"
 					},
 					"sink": {
-						"type": "JsonSink",
+						"type": "DelimitedTextSink",
 						"storeSettings": {
 							"type": "AzureBlobFSWriteSettings"
 						},
 						"formatSettings": {
-							"type": "JsonWriteSettings"
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".csv"
 						}
 					},
-					"enableStaging": false
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
 				},
 				"inputs": [
 					{
-						"referenceName": "DS_LS_SQL_5",
+						"referenceName": "DS_LS_SQL_5_1",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "DS_DL_Storage_5",
+						"referenceName": "DS_DL_Storage_5_1",
 						"type": "DatasetReference"
 					}
 				]
-			},
-			{
-				"name": "Call Ingestion Customer Pipeline",
-				"type": "ExecutePipeline",
-				"dependsOn": [
-					{
-						"activity": "Product Data Greater Than 10",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"userProperties": [],
-				"typeProperties": {
-					"pipeline": {
-						"referenceName": "Ingestion_Customer_To_CSV",
-						"type": "PipelineReference"
-					},
-					"waitOnCompletion": true
-				}
 			}
 		],
 		"annotations": []
