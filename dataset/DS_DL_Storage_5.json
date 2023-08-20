@@ -5,11 +5,20 @@
 			"referenceName": "LS_DL_Store_5",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"filePath": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "Json",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"folderPath": {
+					"value": "@dataset().filePath",
+					"type": "Expression"
+				},
 				"fileSystem": "landing"
 			}
 		},
