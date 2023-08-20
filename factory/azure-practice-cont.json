@@ -1,0 +1,9 @@
+{
+	"name": "azure-practice-cont",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "2e437328-cbf3-4460-bba4-5881d39b2350",
+		"tenantId": "71fb56b5-ae74-4369-9284-5ba9b9368f2f"
+	}
+}
