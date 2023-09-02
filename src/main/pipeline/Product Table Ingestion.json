@@ -53,8 +53,14 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "DS_DL_Generic",
-						"type": "DatasetReference"
+						"referenceName": "DS_DL_Gen_5",
+						"type": "DatasetReference",
+						"parameters": {
+							"folderPath": {
+								"value": "Product/@{formatDateTime(utcNow(),'yyyy')}/@{formatDateTime(utcNow(),'mm')}/@{formatDateTime(utcNow(),'dd')}",
+								"type": "Expression"
+							}
+						}
 					}
 				]
 			}
