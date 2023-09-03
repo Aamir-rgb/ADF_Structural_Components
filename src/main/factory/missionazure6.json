@@ -1,0 +1,9 @@
+{
+	"name": "missionazure6",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "0d3c8b91-1fcc-4640-97f7-cf2d8230f11a",
+		"tenantId": "71fb56b5-ae74-4369-9284-5ba9b9368f2f"
+	}
+}

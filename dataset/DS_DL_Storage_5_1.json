@@ -1,0 +1,22 @@
+{
+	"name": "DS_DL_Storage_5_1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_DL_Store_5",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "landing"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
