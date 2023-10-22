@@ -1,0 +1,9 @@
+{
+	"name": "HighWater",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "048be685-a5fc-48e0-8347-2b4b9470db64",
+		"tenantId": "71fb56b5-ae74-4369-9284-5ba9b9368f2f"
+	}
+}
