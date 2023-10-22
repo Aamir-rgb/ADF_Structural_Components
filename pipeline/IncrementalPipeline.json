@@ -65,7 +65,7 @@
 				}
 			},
 			{
-				"name": "Copy data1",
+				"name": "Compare DB",
 				"type": "Copy",
 				"dependsOn": [
 					{
@@ -132,7 +132,7 @@
 				"type": "Copy",
 				"dependsOn": [
 					{
-						"activity": "Copy data1",
+						"activity": "Compare DB",
 						"dependencyConditions": [
 							"Succeeded"
 						]
