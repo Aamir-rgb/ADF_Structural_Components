@@ -1,0 +1,84 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "HighWater"
+		},
+		"LS_ADLS_6_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_ADLS_6'"
+		},
+		"LS_DL_Store_5_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_DL_Store_5'"
+		},
+		"LS_SQL_DB_6_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_SQL_DB_6'"
+		},
+		"SQL_DB_LS_5_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'SQL_DB_LS_5'"
+		},
+		"LS_ADLS_6_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://assignmentrestart.dfs.core.windows.net/"
+		},
+		"LS_DL_Store_5_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://assignmentrestart.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "HighWater_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"LS_ADLS_6_accountKey": {
+						"value": "[parameters('LS_ADLS_6_accountKey')]"
+					},
+					"LS_DL_Store_5_accountKey": {
+						"value": "[parameters('LS_DL_Store_5_accountKey')]"
+					},
+					"LS_SQL_DB_6_connectionString": {
+						"value": "[parameters('LS_SQL_DB_6_connectionString')]"
+					},
+					"SQL_DB_LS_5_connectionString": {
+						"value": "[parameters('SQL_DB_LS_5_connectionString')]"
+					},
+					"LS_ADLS_6_properties_typeProperties_url": {
+						"value": "[parameters('LS_ADLS_6_properties_typeProperties_url')]"
+					},
+					"LS_DL_Store_5_properties_typeProperties_url": {
+						"value": "[parameters('LS_DL_Store_5_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

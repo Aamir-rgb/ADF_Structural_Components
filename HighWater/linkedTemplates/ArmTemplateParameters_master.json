@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "HighWater"
+		},
+		"LS_ADLS_6_accountKey": {
+			"value": ""
+		},
+		"LS_DL_Store_5_accountKey": {
+			"value": ""
+		},
+		"LS_SQL_DB_6_connectionString": {
+			"value": ""
+		},
+		"SQL_DB_LS_5_connectionString": {
+			"value": ""
+		},
+		"LS_ADLS_6_properties_typeProperties_url": {
+			"value": "https://assignmentrestart.dfs.core.windows.net/"
+		},
+		"LS_DL_Store_5_properties_typeProperties_url": {
+			"value": "https://assignmentrestart.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
