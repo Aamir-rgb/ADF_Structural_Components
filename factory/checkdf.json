@@ -1,0 +1,9 @@
+{
+	"name": "checkdf",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "33a1b711-ccf6-4bb8-92cb-905817315e46",
+		"tenantId": "71fb56b5-ae74-4369-9284-5ba9b9368f2f"
+	}
+}
