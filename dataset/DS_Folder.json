@@ -1,0 +1,26 @@
+{
+	"name": "DS_Folder",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_DL_Gen2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "abc.txt",
+				"fileSystem": {
+					"value": "filePath",
+					"type": "Expression"
+				}
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
