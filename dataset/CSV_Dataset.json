@@ -2,7 +2,7 @@
 	"name": "CSV_Dataset",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "LS_Metadata",
+			"referenceName": "LS_ADLS_6",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
@@ -10,7 +10,10 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileSystem": "check"
+				"fileSystem": {
+					"value": "folderPath",
+					"type": "Expression"
+				}
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
