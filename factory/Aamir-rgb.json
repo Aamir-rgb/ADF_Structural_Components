@@ -1,0 +1,9 @@
+{
+	"name": "Aamir-rgb",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "c070c3f5-9f34-4a29-bf12-fbf1ca08292f",
+		"tenantId": "71fb56b5-ae74-4369-9284-5ba9b9368f2f"
+	}
+}
