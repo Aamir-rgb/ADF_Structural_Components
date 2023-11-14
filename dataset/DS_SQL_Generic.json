@@ -2,7 +2,7 @@
 	"name": "DS_SQL_Generic",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "SQL_DB_LS_5",
+			"referenceName": "LS_SQL_ASS7",
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
@@ -15,16 +15,6 @@
 		},
 		"annotations": [],
 		"type": "AzureSqlTable",
-		"schema": [],
-		"typeProperties": {
-			"schema": {
-				"value": "@dataset().schemaName",
-				"type": "Expression"
-			},
-			"table": {
-				"value": "@dataset().tableName",
-				"type": "Expression"
-			}
-		}
+		"schema": []
 	}
 }
