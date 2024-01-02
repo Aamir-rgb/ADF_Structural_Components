@@ -1,0 +1,9 @@
+{
+	"name": "get-metadata",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "6f93c92a-8db7-4a20-9d89-87f91084c08e",
+		"tenantId": "71fb56b5-ae74-4369-9284-5ba9b9368f2f"
+	}
+}
