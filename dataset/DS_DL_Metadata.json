@@ -1,0 +1,23 @@
+{
+	"name": "DS_DL_Metadata",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_DL_Gen",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "SalesLT.Customer.txt",
+				"fileSystem": "adls"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
