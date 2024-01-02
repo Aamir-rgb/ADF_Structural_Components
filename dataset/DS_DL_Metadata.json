@@ -10,8 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "SalesLT.Customer.txt",
-				"fileSystem": "adls"
+				"fileSystem": "raw"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
